@@ -1,9 +1,9 @@
-import unittest
+from unittest import TestCase
 from helpers import read_file
 from .main import AntiNodeLocator, part_one, part_two
 
 
-class TestDay8PartOne(unittest.TestCase):
+class TestDay8PartOne(TestCase):
     def test_locate_nodes(self):
         f = read_file("08/data/example1.txt")
         area = [list(s) for s in f]

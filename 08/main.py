@@ -1,6 +1,5 @@
 from itertools import combinations
-from helpers import read_file
-from multiprocessing import Process
+from helpers import read_file, execute
 
 
 class AntiNodeLocator:
@@ -52,7 +51,7 @@ class AntiNodeLocator:
         return total
 
 
-def part_one(file_name="08/data.in"):
+def part_one(file_name="08/8.in"):
     area = read_file(file_name)
     char_list = [list(s) for s in area]
     locator = AntiNodeLocator(char_list, False)
@@ -62,7 +61,7 @@ def part_one(file_name="08/data.in"):
     return locator.count_antinodes()
 
 
-def part_two(file_name="08/data.in"):
+def part_two(file_name="08/8.in"):
     area = read_file(file_name)
     char_list = [list(s) for s in area]
     locator = AntiNodeLocator(char_list, True)
@@ -73,10 +72,4 @@ def part_two(file_name="08/data.in"):
 
 
 if __name__ == "__main__":
-    p1 = Process(target=part_one)
-    p2 = Process(target=part_two)
-    p1.start()
-    p2.start()
-    p1.join()
-    p2.join()
-    print("Done!")
+    execute(part_one, part_two)

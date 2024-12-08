@@ -1,11 +1,11 @@
-import unittest
+from unittest import TestCase
 from .main import SolutionFinder
 from helpers import read_file
 
 example_file_path = "07/example.txt"
 
 
-class TestPartSeven(unittest.TestCase):
+class TestPartSeven(TestCase):
     def setUp(self):
         self.solution_finder = SolutionFinder(["*", "+"])
         self.concat_solution_finder = SolutionFinder(["*", "+", "||"])

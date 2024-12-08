@@ -1,7 +1,6 @@
 from itertools import product
-from multiprocessing import Process
 from typing import List
-from helpers import read_file
+from helpers import read_file, execute
 
 
 class SolutionFinder:
@@ -43,7 +42,7 @@ class SolutionFinder:
 def part_one():
     solution_finder = SolutionFinder(["*", "+"])
     total = 0
-    for row in read_file("07/data.txt"):
+    for row in read_file("07/7.in"):
         total += solution_finder.calc_row(row)
     print(f"Part One: {total}")
 
@@ -51,16 +50,10 @@ def part_one():
 def part_two():
     solution_finder = SolutionFinder(["*", "+", "||"])
     total = 0
-    for row in read_file("07/data.txt"):
+    for row in read_file("07/7.in"):
         total += solution_finder.calc_row(row)
     print(f"Part Two: {total}")
 
 
 if __name__ == "__main__":
-    p1 = Process(target=part_one)
-    p2 = Process(target=part_two)
-    p1.start()
-    p2.start()
-    p1.join()
-    p2.join()
-    print("Done!")
+    execute(part_one, part_two)
