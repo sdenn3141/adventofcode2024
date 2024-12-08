@@ -32,7 +32,7 @@ class TestDay8PartOne(TestCase):
         self.assertEqual(received, expected)
 
 
-class TestDay8PartTwo(unittest.TestCase):
+class TestDay8PartTwo(TestCase):
     def test_example_one(self):
         received = part_two("08/data/example1.txt")
         expected = 34
